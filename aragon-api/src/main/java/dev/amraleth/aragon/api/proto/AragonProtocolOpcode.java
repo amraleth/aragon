@@ -8,7 +8,7 @@ import org.jspecify.annotations.NonNull;
  * @author amraleth
  * @since 1.0.0
  */
-public enum ProtocolOpcode {
+public enum AragonProtocolOpcode {
 
     MIGRATE(0x00),
     INSERT(0x01),
@@ -22,7 +22,7 @@ public enum ProtocolOpcode {
     /**
      * @param opcode The internal opcode of the request.
      */
-    ProtocolOpcode(int opcode) {
+    AragonProtocolOpcode(int opcode) {
         this.opcode = opcode;
     }
 
@@ -41,7 +41,7 @@ public enum ProtocolOpcode {
      * @param opcode The primitive opcode to construct from.
      * @return The OpCode.
      */
-    public static @NonNull ProtocolOpcode fromOpcode(int opcode) {
+    public static @NonNull AragonProtocolOpcode fromOpcode(int opcode) {
         return switch (opcode) {
             case 0x00 -> MIGRATE;
             case 0x01 -> INSERT;
