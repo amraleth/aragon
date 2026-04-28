@@ -13,13 +13,22 @@ import org.jspecify.annotations.NullMarked;
 public sealed interface AragonProtocolPacket<T> permits AragonProtocolPackets.AragonProtocolDeletePacket,
         AragonProtocolPackets.AragonProtocolInsertPacket, AragonProtocolPackets.AragonProtocolUpdatePacket {
 
+    int ARAGON_PROTOCOL_VERSION = 0x01;
+
     /**
-     * Specifies the opcode of this packet, defaults to {@link AragonProtocolOpcode#UNKNOWN}.
+     * Specifies the opcode of this packet.
      *
      * @return The opcode of the packet.
      */
-    default AragonProtocolOpcode getProtocolOpcode() {
-        return AragonProtocolOpcode.UNKNOWN;
+    AragonProtocolOpcode getProtocolOpcode();
+
+    /**
+     * Generates the protocol header.
+     *
+     * @return The header as a string.
+     */
+    default String genProtocolHeader() {
+        return "%d,%d,".formatted(ARAGON_PROTOCOL_VERSION, getProtocolOpcode().getOpcode());
     }
 
     /**
@@ -29,7 +38,7 @@ public sealed interface AragonProtocolPacket<T> permits AragonProtocolPackets.Ar
      * @return The output string.
      * @throws AragonProtocolException.AragonProtocolSerializeException If an error during serialization occurred.
      */
-    String serialize(T value) throws AragonProtocolException.AragonProtocolSerializeException;
+    String serializePacketFromValue(T value) throws AragonProtocolException.AragonProtocolSerializeException;
 
     /**
      * Deserializes a string into the specified type {@code T}.
@@ -38,5 +47,5 @@ public sealed interface AragonProtocolPacket<T> permits AragonProtocolPackets.Ar
      * @return The output data.
      * @throws AragonProtocolException.AragonProtocolDeserializeException If an error during deserialization occurred.
      */
-    T deserialize(String from) throws AragonProtocolException.AragonProtocolDeserializeException;
+    T deserializePacketFromString(String from) throws AragonProtocolException.AragonProtocolDeserializeException;
 }

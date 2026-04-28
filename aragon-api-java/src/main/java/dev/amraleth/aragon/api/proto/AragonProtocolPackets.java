@@ -27,12 +27,12 @@ public final class AragonProtocolPackets {
         }
 
         @Override
-        public String serialize(AragonProtocolPacketPayloads.AragonProtocolInsertPacketPayload value) throws AragonProtocolException.AragonProtocolSerializeException {
+        public String serializePacketFromValue(AragonProtocolPacketPayloads.AragonProtocolInsertPacketPayload value) throws AragonProtocolException.AragonProtocolSerializeException {
             return "";
         }
 
         @Override
-        public AragonProtocolPacketPayloads.AragonProtocolInsertPacketPayload deserialize(String from) throws AragonProtocolException.AragonProtocolDeserializeException {
+        public AragonProtocolPacketPayloads.AragonProtocolInsertPacketPayload deserializePacketFromString(String from) throws AragonProtocolException.AragonProtocolDeserializeException {
             return new AragonProtocolPacketPayloads.AragonProtocolInsertPacketPayload();
         }
 
@@ -46,12 +46,12 @@ public final class AragonProtocolPackets {
         }
 
         @Override
-        public String serialize(AragonProtocolPacketPayloads.AragonProtocolUpdatePacketPayload value) throws AragonProtocolException.AragonProtocolSerializeException {
+        public String serializePacketFromValue(AragonProtocolPacketPayloads.AragonProtocolUpdatePacketPayload value) throws AragonProtocolException.AragonProtocolSerializeException {
             return "";
         }
 
         @Override
-        public AragonProtocolPacketPayloads.AragonProtocolUpdatePacketPayload deserialize(String from) throws AragonProtocolException.AragonProtocolDeserializeException {
+        public AragonProtocolPacketPayloads.AragonProtocolUpdatePacketPayload deserializePacketFromString(String from) throws AragonProtocolException.AragonProtocolDeserializeException {
             return new AragonProtocolPacketPayloads.AragonProtocolUpdatePacketPayload();
         }
 
@@ -65,12 +65,12 @@ public final class AragonProtocolPackets {
         }
 
         @Override
-        public String serialize(AragonProtocolPacketPayloads.AragonProtocolDeletePacketPayload value) throws AragonProtocolException.AragonProtocolSerializeException {
+        public String serializePacketFromValue(AragonProtocolPacketPayloads.AragonProtocolDeletePacketPayload value) throws AragonProtocolException.AragonProtocolSerializeException {
             return "";
         }
 
         @Override
-        public AragonProtocolPacketPayloads.AragonProtocolDeletePacketPayload deserialize(String from) throws AragonProtocolException.AragonProtocolDeserializeException {
+        public AragonProtocolPacketPayloads.AragonProtocolDeletePacketPayload deserializePacketFromString(String from) throws AragonProtocolException.AragonProtocolDeserializeException {
             return new AragonProtocolPacketPayloads.AragonProtocolDeletePacketPayload();
         }
 
